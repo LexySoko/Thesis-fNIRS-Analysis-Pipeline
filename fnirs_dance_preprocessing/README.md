@@ -5,10 +5,24 @@ mirrors the preprocessing and quality-control workflow from my honors
 thesis on dance and AI-generated movement.
 
 The code uses **simulated fNIRS/HD-DOT data** for a block-design
-observation vs execution task (e.g., watching vs dancing to movement
+observation vs execution task (e.g., watching vs dancing movement
 phrases). It is intended as a transparent example of how I work with
 optical neuroimaging data, not as a replacement for any vendor or
 toolbox-specific pipeline.
+
+## Requirements
+
+- MATLAB (R2021b or later recommended)
+- [NeuroDOT toolbox](https://www.nitrc.org/projects/neurondot/) installed
+  and on the MATLAB path for:
+  - real fNIRS/HD-DOT datasets
+  - cortical / 2D brain surface projections (dorsal, lateral views)
+  - vendor-specific LUMO data loading and registration workflows
+
+The **simulation + basic channel-based analysis and QC** in this repo
+can run without NeuroDOT. However, reproducing a full analysis like in
+my thesis (including cortical maps and subject-specific registration)
+requires NeuroDOT.
 
 ## Pipeline overview
 
@@ -39,7 +53,7 @@ The demo follows these steps:
 5. **GLM and maps**
    - Build a block design matrix for each task condition
    - Run a per-channel GLM on the cleaned data
-   - Generate simple 2D "activation maps" over the cap
+   - Generate simple 2D activation maps over the cap
    - Compute condition subtraction maps (e.g., Execution – Observation)
 
 All data are synthetic and self-contained.
